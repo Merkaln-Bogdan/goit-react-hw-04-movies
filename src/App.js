@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Suspense } from "react";
+import routes from "./Routes/Routes";
+import Home from "./components/HomePage/Home";
+import { Route, Switch } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import MoviesPage from "./components/MoviesPage/MoviesPage";
+import MovieDetailsPage from "./components/MovieDetailsPage/MovieDetailsPage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+const App = () => (
+  <>
+    <Layout>
+      <Suspense fallback={<h2>Loading...</h2>}>
+        <Switch>
+          <Route path={routes.home} exact component={Home} />
+          <Route path={routes.movieDetails} component={MovieDetailsPage} />
+          <Route path={routes.movies} exact component={MoviesPage} />
+        </Switch>
+      </Suspense>
+    </Layout>
+  </>
+);
 export default App;
