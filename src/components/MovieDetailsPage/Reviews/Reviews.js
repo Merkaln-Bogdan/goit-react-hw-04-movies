@@ -2,8 +2,9 @@ import React from "react";
 
 const Reviews = ({ reviews }) => (
   <div>
-    {reviews !== undefined ? (
+    {reviews !== undefined && reviews.length !== 0 ? (
       <ul>
+        {console.log(reviews)}
         {reviews.map((review) => (
           <li key={review.id}>
             <h4>Author: {review.author}</h4>

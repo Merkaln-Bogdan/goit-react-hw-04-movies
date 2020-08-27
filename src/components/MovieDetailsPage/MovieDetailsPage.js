@@ -31,7 +31,7 @@ class MovieDetailsPage extends Component {
 
   render() {
     const { cast, reviews, movie } = this.state;
-
+    console.log(reviews);
     return (
       <div>
         <button
